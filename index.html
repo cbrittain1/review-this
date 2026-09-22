@@ -3,39 +3,153 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Review This — Interactive Review Applets</title>
+  <title>Claire's Review Space</title>
   <style>
-    :root { --red: #c5050c; --ink: #222; --muted: #5c5c5c; --line: #d8d8d8; }
+    :root {
+      --teal-deep: #0f5f5c;
+      --teal: #2b8c86;
+      --green: #4caf82;
+      --ink: #1f2d2b;
+      --muted: #55645f;
+      --panel: #fffef9;
+      --card-border: #bfe3d6;
+      --card-hover-border: #6fbfae;
+      --focus: #1f6f8b;
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; background: #efefef; color: var(--ink); font-family: Arial, Helvetica, sans-serif; line-height: 1.45; }
-    main { width: min(760px, calc(100% - 32px)); margin: 30px auto; background: #fff; box-shadow: 0 2px 14px rgba(0, 0, 0, .1); }
-    header { border-top: 9px solid var(--red); padding: 30px 40px 24px; border-bottom: 1px solid var(--line); }
-    header h1 { margin: 0 0 6px; color: var(--red); font-size: 1.7rem; }
-    header p { margin: 6px 0; color: var(--muted); }
-    section { padding: 25px 40px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      line-height: 1.5;
+      background: linear-gradient(160deg, #eaf4fb 0%, #e6f5ee 45%, #ecf7ef 100%);
+      background-attachment: fixed;
+    }
+    .decor {
+      position: fixed;
+      border-radius: 50%;
+      z-index: 0;
+      filter: blur(1px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .decor.one { width: 220px; height: 220px; top: -60px; left: -70px; background: radial-gradient(circle, #bfe3ff, transparent 70%); }
+    .decor.two { width: 260px; height: 260px; bottom: -80px; right: -90px; background: radial-gradient(circle, #bdeed2, transparent 70%); }
+    .decor.three { width: 140px; height: 140px; top: 40%; right: -60px; background: radial-gradient(circle, #d7f0e6, transparent 70%); }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: min(680px, calc(100% - 32px));
+      margin: 48px auto;
+      background: var(--panel);
+      border-radius: 20px;
+      box-shadow: 0 12px 36px rgba(15, 95, 92, 0.14), 0 2px 8px rgba(15, 95, 92, 0.08);
+      overflow: hidden;
+    }
+    header {
+      padding: 40px 44px 28px;
+      border-bottom: 1px solid #e4efe9;
+      background: linear-gradient(120deg, #f4fbf9 0%, #eef8f2 100%);
+    }
+    header h1 {
+      margin: 0 0 10px;
+      color: var(--teal-deep);
+      font-size: clamp(1.7rem, 4vw, 2.2rem);
+      letter-spacing: -0.01em;
+    }
+    header p.subheading {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    section.list-section { padding: 30px 44px 12px; }
+    p.instruction {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
     ul.applet-list { list-style: none; margin: 0; padding: 0; }
-    ul.applet-list li { margin-bottom: 12px; }
-    ul.applet-list a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-left: 5px solid var(--red); border-radius: 4px; color: var(--ink); text-decoration: none; font-weight: 700; }
-    ul.applet-list a:hover { background: #f6f6f6; }
-    ul.applet-list p { margin: 4px 0 0; font-weight: 400; color: var(--muted); font-size: .9rem; }
-    footer { padding: 18px 40px; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+    ul.applet-list li { margin-bottom: 16px; }
+    ul.applet-list a {
+      display: block;
+      padding: 18px 20px;
+      background: linear-gradient(135deg, #ffffff, #f3fbf8);
+      border: 1px solid var(--card-border);
+      border-left: 6px solid var(--green);
+      border-radius: 12px;
+      color: var(--ink);
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    ul.applet-list a .title {
+      display: block;
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: var(--teal-deep);
+      margin-bottom: 4px;
+    }
+    ul.applet-list a .desc {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    ul.applet-list a:hover {
+      transform: translateY(-3px);
+      border-color: var(--card-hover-border);
+      box-shadow: 0 10px 22px rgba(43, 140, 134, 0.18);
+    }
+    ul.applet-list a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    footer {
+      padding: 20px 44px 32px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      border-top: 1px solid #e4efe9;
+    }
+
+    @media (max-width: 560px) {
+      main { margin: 20px auto; border-radius: 14px; }
+      header, section.list-section, footer { padding-left: 22px; padding-right: 22px; }
+      header { padding-top: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      ul.applet-list a { transition: none; }
+      ul.applet-list a:hover { transform: none; }
+    }
   </style>
 </head>
 <body>
+  <span class="decor one" aria-hidden="true"></span>
+  <span class="decor two" aria-hidden="true"></span>
+  <span class="decor three" aria-hidden="true"></span>
+
   <main>
     <header>
-      <h1>Review This</h1>
-      <p>Standalone HTML pages for interactive review of in-progress materials.</p>
+      <h1>Claire's Review Space</h1>
+      <p class="subheading">Draft materials shared for preview, review, and feedback.</p>
     </header>
-    <section>
+
+    <section class="list-section">
+      <p class="instruction">Select an item below to open its interactive HTML preview.</p>
       <ul class="applet-list">
         <li>
-          <a href="applets/participant-survey/">Participant Survey — Interactive Review</a>
-          <p>Proposed participant survey questions with working checkboxes and open-response fields.</p>
+          <a href="applets/participant-survey/">
+            <span class="title">Participant Survey — Interactive Review</span>
+            <span class="desc">Proposed participant survey questions with working checkboxes and open-response fields.</span>
+          </a>
         </li>
       </ul>
     </section>
-    <footer>Add new applets by linking them here — see README.md.</footer>
+
+    <footer>Anything you enter is for preview only and is not saved. New materials may be added here over time.</footer>
   </main>
 </body>
 </html>
