@@ -1,12 +1,12 @@
-# expand-ai-html-applets
+# review-this
 
 Standalone, self-contained HTML pages ("applets") used for interactive review
-of EXPAND: AI program materials — e.g. survey drafts, planning tools, and
-other one-off interactive documents. This repository is intentionally simple:
+of in-progress materials — e.g. survey drafts, planning tools, and other
+one-off interactive documents. This repository is intentionally simple:
 plain HTML/CSS/JavaScript, no build step, no framework, no dependencies.
 
-This repo is deliberately separate from the main content hub repository so
-that only these standalone review pages are ever published or hosted — no
+This repo is deliberately kept separate from any source content repository
+so that only these standalone review pages are ever published or hosted — no
 internal team documents, source materials, or private inputs live here.
 
 ## Folder structure
