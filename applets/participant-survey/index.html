@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXPAND: AI Participant Survey Questions</title>
+  <style>
+    :root {
+      --red: #c5050c;
+      --ink: #222;
+      --muted: #5c5c5c;
+      --line: #d8d8d8;
+      --soft: #f6f6f6;
+      --green: #eaf5ee;
+      --blue: #eaf3f8;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #efefef; color: var(--ink); font-family: Arial, Helvetica, sans-serif; line-height: 1.45; }
+    main { width: min(1000px, calc(100% - 32px)); margin: 30px auto; background: #fff; box-shadow: 0 2px 14px rgba(0, 0, 0, .1); }
+    header { border-top: 9px solid var(--red); padding: 30px 40px 24px; border-bottom: 1px solid var(--line); }
+    header h1 { margin: 0 0 6px; color: var(--red); font-size: 1.9rem; }
+    header p, .instruction { color: var(--muted); }
+    header p, p { margin: 6px 0; }
+    section { padding: 25px 40px; border-bottom: 1px solid var(--line); }
+    h2 { margin: 0 0 13px; font-size: 1.3rem; }
+    h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: #333; color: #fff; }
+    th:last-child, td:last-child { width: 34%; }
+    .question { margin-top: 16px; padding: 19px 20px; border: 1px solid var(--line); border-left: 5px solid var(--red); border-radius: 4px; }
+    .question:first-of-type { margin-top: 0; }
+    .prompt { font-weight: 700; }
+    .instruction { font-size: .92rem; }
+    .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 14px; margin-top: 12px; }
+    .option { padding: 7px 9px; background: var(--soft); border-radius: 3px; }
+    .option.wide { grid-column: 1 / -1; }
+    .option label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+    .option input[type="checkbox"] { margin-top: 3px; accent-color: var(--red); }
+    .other-input { width: min(320px, 100%); margin-left: 8px; padding: 5px 7px; border: 1px solid #999; border-radius: 3px; }
+    .scope-note { margin: 0 0 16px; padding: 13px 15px; border-left: 5px solid var(--red); background: var(--soft); }
+    .scope-note.later { margin-top: 24px; }
+    .survey-component { padding: 20px; border: 2px solid var(--line); border-radius: 6px; }
+    .reviewer-guide { background: var(--blue); border-left: 7px solid #8bb7cf; }
+    .subsection { margin: 28px 0 8px; padding-top: 20px; border-top: 2px solid var(--line); font-size: 1.12rem; }
+    .transition-note { margin: 0 0 12px; color: var(--muted); font-size: .94rem; }
+    details.use-details { margin-top: 12px; border: 1px solid #c8dbe7; border-radius: 4px; background: var(--blue); font-size: .92rem; }
+    details.use-details summary { padding: 9px 11px; cursor: pointer; font-weight: 700; }
+    details.use-details p { margin: 0; padding: 0 11px 10px; }
+    .open-response { width: 100%; min-height: 82px; margin-top: 10px; padding: 9px; border: 1px solid #999; border-radius: 4px; background: #fff; font: inherit; resize: vertical; }
+    .selection-status { margin: 8px 0 0; color: var(--muted); font-size: .88rem; }
+    footer { padding: 18px 40px; color: var(--muted); font-size: .88rem; }
+    @media (max-width: 720px) {
+      main { width: 100%; margin: 0; }
+      header, section, footer { padding-left: 20px; padding-right: 20px; }
+      .options { grid-template-columns: 1fr; }
+      .option.wide { grid-column: auto; }
+    }
+    @media print {
+      body { background: #fff; }
+      main { width: 100%; margin: 0; box-shadow: none; }
+      .question { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Participant Survey Questions</h1>
+      <p>Proposed questions for gathering participant perspectives on EXPAND: AI and live track time</p>
+    </header>
+
+    <section>
+      <h2>Evaluation questions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Evaluation question</th>
+            <th>Evidence used to help answer it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>1a.</strong> How do participants describe what someone should know to decide whether EXPAND: AI is a good fit?<br><br>
+              <strong>1b.</strong> How do those descriptions align with or differ from the program&rsquo;s intended purpose and design?
+            </td>
+            <td>
+              <strong>1a.</strong> Participant survey question 1<br><br>
+              <strong>1b.</strong> Question 1 responses and program design documents
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>2a.</strong> What do participants report doing during live track time?<br><br>
+              <strong>2b.</strong> How does this compare with what they would prioritize for future cohorts?
+            </td>
+            <td>
+              <strong>2a.</strong> Participant survey question 2<br><br>
+              <strong>2b.</strong> Participant survey questions 2 and 3
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="reviewer-guide">
+      <h2>Note</h2>
+      <p>The evaluation questions and expandable &ldquo;How this will be used&rdquo; notes are for internal planning only and will not appear in the participant survey.</p>
+    </section>
+
+    <section>
+      <h2>Proposed survey questions</h2>
+
+      <div class="survey-component">
+      <article class="question">
+        <h3>Question 1</h3>
+        <p class="prompt">What should someone know to decide whether EXPAND: AI would be a good fit for them?</p>
+        <p class="instruction">Open response.</p>
+        <textarea class="open-response" aria-label="Response to Question 1"></textarea>
+        <details class="use-details">
+          <summary>How this will be used</summary>
+          <p>Responses will be reviewed for recurring and unexpected themes, then compared with the program&rsquo;s confirmed purpose and design.</p>
+        </details>
+      </article>
+
+      <div class="scope-note later">
+        <strong>Questions 2 and 3: Live track time</strong>
+        <p>For these questions, live track time refers to the time you spent with others in your track: the final 30 minutes of Weeks 1&ndash;3 and the 90-minute track session in Week 5. This part of EXPAND: AI is still evolving, and what we learn from this cohort will help shape its design in future cohorts.</p>
+      </div>
+
+      <article class="question">
+        <h3>Question 2</h3>
+        <p class="prompt">Which of the following did you take part in during live track time?</p>
+        <p class="instruction">Based on the sessions you attended, select all that apply.</p>
+        <div class="options">
+          <div class="option"><label><input type="checkbox" name="experienced" value="discussion"> <span>Discuss AI with people doing similar work</span></label></div>
+          <div class="option"><label><input type="checkbox" name="experienced" value="examples"> <span>See examples or demonstrations of AI related to my program area</span></label></div>
+          <div class="option"><label><input type="checkbox" name="experienced" value="practice"> <span>Practice using AI for something related to my work</span></label></div>
+          <div class="option"><label><input type="checkbox" name="experienced" value="alp-input"> <span>Get input on my Action Learning Project</span></label></div>
+          <div class="option"><label><input type="checkbox" name="experienced" value="other"> <span>Something else:</span></label><input class="other-input" type="text" aria-label="Other live track experience"></div>
+          <div class="option"><label><input type="checkbox" name="experienced" value="none"> <span>I did not experience any of these</span></label></div>
+        </div>
+        <details class="use-details">
+          <summary>How this will be used</summary>
+          <p>Responses will summarize which live track experiences participants report taking part in. We will compare them with Question 3 to identify where reported experiences and future priorities align or differ.</p>
+        </details>
+      </article>
+
+      <article class="question">
+        <h3>Question 3</h3>
+        <p class="prompt">Which two would you prioritize for live track time in future EXPAND: AI cohorts?</p>
+        <p class="instruction">Select up to two.</p>
+        <div class="options max-two" role="group" aria-label="Select up to two future priorities">
+          <div class="option"><label><input type="checkbox" name="priority" value="discussion"> <span>Discuss AI with people doing similar work</span></label></div>
+          <div class="option"><label><input type="checkbox" name="priority" value="examples"> <span>See examples or demonstrations of AI related to my program area</span></label></div>
+          <div class="option"><label><input type="checkbox" name="priority" value="practice"> <span>Practice using AI for something related to my work</span></label></div>
+          <div class="option"><label><input type="checkbox" name="priority" value="alp-input"> <span>Get input on my Action Learning Project</span></label></div>
+          <div class="option wide"><label><input type="checkbox" name="priority" value="other"> <span>Something else:</span></label><input class="other-input" type="text" aria-label="Other future priority"></div>
+        </div>
+        <p class="selection-status" aria-live="polite">0 of 2 selected</p>
+        <p class="instruction"><strong>Optional:</strong> Tell us more about what you experienced, your selections, or anything else we should consider as we plan live track time for future cohorts.</p>
+        <textarea class="open-response" aria-label="Additional comments about live track time"></textarea>
+        <details class="use-details">
+          <summary>How this will be used</summary>
+          <p>Responses will help inform where to place greater emphasis during live track time in future cohorts.</p>
+        </details>
+      </article>
+      </div>
+    </section>
+
+    <footer>Working evaluation and survey review &middot; September 2026</footer>
+  </main>
+  <script>
+    document.querySelectorAll('input[name="experienced"]').forEach((box) => {
+      box.addEventListener('change', () => {
+        const group = [...document.querySelectorAll('input[name="experienced"]')];
+        const none = group.find((item) => item.value === 'none');
+        if (box === none && box.checked) {
+          group.filter((item) => item !== none).forEach((item) => { item.checked = false; });
+        } else if (box.checked) {
+          none.checked = false;
+        }
+      });
+    });
+
+    document.querySelectorAll('.max-two').forEach((group) => {
+      const boxes = [...group.querySelectorAll('input[type="checkbox"]')];
+      const status = group.nextElementSibling;
+      const update = () => {
+        const selected = boxes.filter((box) => box.checked).length;
+        boxes.forEach((box) => { box.disabled = selected >= 2 && !box.checked; });
+        status.textContent = `${selected} of 2 selected`;
+      };
+      boxes.forEach((box) => box.addEventListener('change', update));
+      update();
+    });
+  </script>
+</body>
+</html>

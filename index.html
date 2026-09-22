@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXPAND: AI — Interactive Review Applets</title>
+  <style>
+    :root { --red: #c5050c; --ink: #222; --muted: #5c5c5c; --line: #d8d8d8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #efefef; color: var(--ink); font-family: Arial, Helvetica, sans-serif; line-height: 1.45; }
+    main { width: min(760px, calc(100% - 32px)); margin: 30px auto; background: #fff; box-shadow: 0 2px 14px rgba(0, 0, 0, .1); }
+    header { border-top: 9px solid var(--red); padding: 30px 40px 24px; border-bottom: 1px solid var(--line); }
+    header h1 { margin: 0 0 6px; color: var(--red); font-size: 1.7rem; }
+    header p { margin: 6px 0; color: var(--muted); }
+    section { padding: 25px 40px; }
+    ul.applet-list { list-style: none; margin: 0; padding: 0; }
+    ul.applet-list li { margin-bottom: 12px; }
+    ul.applet-list a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-left: 5px solid var(--red); border-radius: 4px; color: var(--ink); text-decoration: none; font-weight: 700; }
+    ul.applet-list a:hover { background: #f6f6f6; }
+    ul.applet-list p { margin: 4px 0 0; font-weight: 400; color: var(--muted); font-size: .9rem; }
+    footer { padding: 18px 40px; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>EXPAND: AI Interactive Review Applets</h1>
+      <p>Standalone HTML pages for reviewing in-progress program materials.</p>
+    </header>
+    <section>
+      <ul class="applet-list">
+        <li>
+          <a href="applets/participant-survey/">Participant Survey — Interactive Review</a>
+          <p>Proposed participant survey questions with working checkboxes and open-response fields.</p>
+        </li>
+      </ul>
+    </section>
+    <footer>Add new applets by linking them here — see README.md.</footer>
+  </main>
+</body>
+</html>
